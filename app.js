@@ -1,14 +1,14 @@
 const express = require('express')
+const path = require('path') // core node lib for parsing file & directory paths
+const app = express()
+const navRoutes = require('./routes')
 // const mongoose = require('mongoose')
 const port = 3000
 
-const app = express()
-
 // mongoose.connect(process.env.DBURL2)
-
-app.get('/', function (req, res) {
-  res.send('Home page')
-})
+app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, 'public'))) // express.static is a middleware to serve static files in /public directory in the project root
+app.use(navRoutes)
 
 app.listen(port, function () {
   console.log(`Todo app running on port ${port}`)
