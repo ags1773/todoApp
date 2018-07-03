@@ -1,16 +1,15 @@
-const mongoose = require('mongoose')
-const Todo = require('./models/todo')
+const express = require('express')
+// const mongoose = require('mongoose')
+const port = 3000
 
-mongoose.connect(process.env.DBURL2)
+const app = express()
 
-Todo.create({
-  title: 'sample title',
-  content: [{tid:1, data: 'Buy milk'}, {tid: 2, data: 'Walk the dog'}, {tid: 3, data: 'Clean house'}, {tid: 4, data: 'Wash car'}]
-}, function (err, newToDo) {
-  if (err) throw err
-  console.log('todo created')
-  newToDo.save(function (err) {
-    if (err) throw err
-    console.log('todo saved to db')
-  })
+// mongoose.connect(process.env.DBURL2)
+
+app.get('/', function (req, res) {
+  res.send('Home page')
+})
+
+app.listen(port, function () {
+  console.log(`Todo app running on port ${port}`)
 })
