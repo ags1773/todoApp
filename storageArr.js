@@ -11,7 +11,7 @@ const storage = [
   },
   {
     title: 'To-Do 3',
-    content: ['Get groceries', 'Repair generator', 'Clean house', 'Pay telephone bill'],
+    content: ['Get groceries', 'Repair generator', 'Clean house', 'Pay telephone bill', 'Repair generator', 'Clean house'],
     id: 3
   },
   {
