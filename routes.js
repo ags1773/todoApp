@@ -30,10 +30,14 @@ router.get('/:id', function (req, res) {
 //   res.send(`Hit PUT`)
 // })
 
-// router.post('/test', function (req, res) {
-//   console.log("Hit POST")
-//   console.log(req.body)
-//   res.redirect('/')
-// })
+router.post('/', function (req, res) {
+  let tempObj = {}
+  tempObj.title = req.body.title
+  tempObj.content = req.body.content.split(',')
+  // Remove ID when you add DB
+  tempObj.id = req.body.id
+  storageArr.push(tempObj)
+  res.sendStatus(200)
+})
 
 module.exports = router

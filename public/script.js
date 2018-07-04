@@ -18,35 +18,52 @@ if (document.querySelector('#newToDo')) {
   document.querySelector('#submitToDo').addEventListener('click', function () {
     let title = document.querySelector('#newToDoTitle').value
     if (/^\S+/.test(title) && todos.length > 0) {
-      console.log('Accept payload')
-      console.log(`Title :${title}`)
-      console.log(todos)
+      let payload = {
+        title: title,
+        content: todos,
+        // Remove ID when you add DB
+        id: Math.floor(Math.random() * 10000)
+      }
+      sendData(payload)
+      window.location.href = '/'
     }
   })
 }
 
-// function sendData (data) {
-//   var XHR = new XMLHttpRequest()
-//   var FD = new FormData()
+function sendData (data) {
+  let XHR = new XMLHttpRequest()
+  let urlEncodedData = ''
+  let urlEncodedDataPairs = []
+  let returnVal
 
-//   // Push our data into our FormData object
-//   for(name in data) {
-//     FD.append(name, data[name]);
-//   }
+  // Turn the data object into an array of URL-encoded key/value pairs.
+  for (let name in data) {
+    urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]))
+  }
 
-//   // Define what happens on successful data submission
-//   XHR.addEventListener('load', function(event) {
-//     alert('Yeah! Data sent and response loaded.');
-//   });
+  // Combine the pairs into a single string and replace all %-encoded spaces to 
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
 
-//   // Define what happens in case of error
-//   XHR.addEventListener('error', function(event) {
-//     alert('Oops! Something went wrong.');
-//   });
+  // Define what happens on successful data submission
+  XHR.addEventListener('load', function (e) {
+    if (e.target.status === 200) returnVal = true
+    else returnVal = false
+  })
 
-//   // Set up our request
-//   XHR.open('POST', '/test');
+  // Define what happens in case of error
+  XHR.addEventListener('error', function (event) {
+    returnVal = false
+  })
 
-//   // Send our FormData object; HTTP headers are set automatically
-//   XHR.send(FD);
-// }
+  // Set up our request
+  XHR.open('POST', '/', true)
+
+  // Add the required HTTP header for form data POST requests
+  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  // Finally, send our data.
+  XHR.send(urlEncodedData)
+
+  return returnVal
+}
