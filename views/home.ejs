@@ -17,29 +17,31 @@
     <button class="btn btn-dark">Create</button>
   </nav>
 
-  <div class="container mt-3">
-    <div class="card">
+  <div class="container">
+    <div class="row mt-3">
       <% for (let todo of toDos) { %>
-        <div class="card-body shadow bg-white rounded my-3">
-          <h5 class="card-title"><%= todo.title %></h5>
-          <ul class="list-group list-group-flush">
-            <% for (let i = 0; i < todo.content.length; i++) { %>
-              <% if (i < 3) { %>
-                <li class="list-group-item"><%= todo.content[i] %></li>
-              <% } else { %>
-                <li class="list-group-item">....</li>
-                <% break %>
+        <div class="card col-sm-6 col-md-4">
+          <div class="card-body shadow bg-white rounded my-3">
+            <h5 class="card-title"><%= todo.title %></h5>
+            <ul class="list-group list-group-flush">
+              <% for (let i = 0; i < todo.content.length; i++) { %>
+                <% if (i < 3) { %>
+                  <li class="list-group-item"><%= todo.content[i] %></li>
+                <% } else { %>
+                  <li class="list-group-item">....</li>
+                  <% break %>
+                <% } %>
               <% } %>
-            <% } %>
-          </ul>
-          <div class="card-body pb-0">
-            <a href="/<%= todo.id %>" class="btn btn-outline-success">View</a>
+            </ul>
+            <div class="card-body pb-0">
+              <a href="/<%= todo.id %>" class="btn btn-outline-success">View</a>
+            </div>
           </div>
         </div>
       <% } %>
     </div>
   </div>
-  
+
   <script type="text/javascript" src='/script.js'></script>
 </body>
 </html>
