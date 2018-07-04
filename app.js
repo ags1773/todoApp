@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path') // core node lib for parsing file & directory paths
+const methodOverride = require('method-override') // Used to send PUT & DELETE requests from HTML forms (not supported natively)
 const app = express()
 const navRoutes = require('./routes')
 // const mongoose = require('mongoose')
@@ -8,6 +9,7 @@ const port = 3000
 // mongoose.connect(process.env.DBURL2)
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public'))) // express.static is a middleware to serve static files in /public directory in the project root
+app.use(methodOverride('_method'))
 app.use(navRoutes)
 
 app.listen(port, function () {

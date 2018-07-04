@@ -1,0 +1,30 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "todo app",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ags1773/todoApp.git"
+  },
+  "keywords": [
+    "to",
+    "do"
+  ],
+  "author": "amogh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ags1773/todoApp/issues"
+  },
+  "homepage": "https://github.com/ags1773/todoApp#readme"
+}

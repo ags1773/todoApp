@@ -4,44 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>To Do App</title>
+  <title>New To Do</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body id="newToDo">
   <nav class="navbar navbar-light bg-info py-0">
-    <a class="navbar-brand py-0" href="#">
-      <!-- <svg width="180.16851806640625" height="80"><defs id="SvgjsDefs1070"></defs><g id="SvgjsG1071" featurekey="root" fill="#ffffff" transform="matrix(1,0,0,1,0,0)"></g><g id="SvgjsG1072" featurekey="text1" fill="#237bb1" transform="matrix(4.213482931608094,0,0,4.213482931608094,-1.9382013046987276,-15.280893571358106)"><path d="M6.78 12.280000000000001 l-2.46 0 l0 4.1 c0 1 0 1.46 0.84 1.46 c0.56 0 1.52 -0.04 1.52 -0.04 l0.12 2.14 s-1.34 0.3 -2.04 0.3 c-2.42 0 -3.12 -0.92 -3.12 -3.8 l0 -4.16 l-1.18 0 l0 -2.28 l1.18 0 l0 -2.78 l2.68 0 l0 2.78 l2.46 0 l0 2.28 z M12.600000000000001 9.76 c3.48 0 4.6 2.14 4.6 5.22 s-1.12 5.26 -4.6 5.26 s-4.6 -2.18 -4.6 -5.26 s1.12 -5.22 4.6 -5.22 z M12.600000000000001 17.96 c1.48 0 1.88 -1.04 1.88 -2.98 s-0.4 -2.94 -1.88 -2.94 s-1.88 1 -1.88 2.94 s0.4 2.98 1.88 2.98 z  M32.06 6 l0 14 l-2.66 0 l0 -0.42 s-1.4 0.66 -2.42 0.66 c-3.02 0 -3.9 -1.76 -3.9 -5.28 c0 -3.66 1.42 -5.2 4.14 -5.2 c0.74 0 2.16 0.28 2.16 0.28 l0 -4.04 l2.68 0 z M27.44 17.84 c0.94 0 1.94 -0.3 1.94 -0.3 l0 -5.26 s-1.1 -0.2 -1.96 -0.2 c-1 0 -1.62 0.86 -1.62 2.88 c0 2.04 0.38 2.88 1.64 2.88 z M38.62 9.76 c3.48 0 4.6 2.14 4.6 5.22 s-1.12 5.26 -4.6 5.26 s-4.6 -2.18 -4.6 -5.26 s1.12 -5.22 4.6 -5.22 z M38.62 17.96 c1.48 0 1.88 -1.04 1.88 -2.98 s-0.4 -2.94 -1.88 -2.94 s-1.88 1 -1.88 2.94 s0.4 2.98 1.88 2.98 z"></path></g></svg> -->
+    <a class="navbar-brand py-0" href="/">
       <svg width="213" height="80"><defs id="SvgjsDefs1264"></defs><g id="SvgjsG1265" featurekey="root" fill="#ffffff" transform="matrix(1,0,0,1,0,0)"></g><g id="SvgjsG1266" featurekey="text1" fill="#4c5055" transform="matrix(4.2674254821515705,0,0,4.2674254821515705,-3.584636530014492,-32.6742548215157)"><path d="M5.24 14 c0.6 0 1.12 0.48 1.12 1.1 c0 0.6 -0.52 1.1 -1.12 1.1 l-0.5 0 l0 5.58 l0 0 c0.62 0 1.1 0.5 1.1 1.12 s-0.48 1.1 -1.1 1.1 c-1.22 0 -2.22 -1 -2.22 -2.22 l0 -5.58 l-0.58 0 c-0.62 0 -1.1 -0.5 -1.1 -1.1 c0 -0.62 0.48 -1.1 1.1 -1.1 l0.58 0 l0 -2.9 l0 0 c0 -0.62 0.5 -1.1 1.12 -1.1 s1.1 0.48 1.1 1.1 l0 2.9 l0.5 0 z M14.219999999999999 24.06 c-1.38 0 -2.54 -0.58 -3.44 -1.52 c-0.86 -0.88 -1.38 -2.12 -1.38 -3.52 c0 -1.36 0.52 -2.54 1.38 -3.5 c0.9 -0.94 2.06 -1.52 3.44 -1.52 c1.32 0 2.52 0.58 3.34 1.52 c0.9 0.96 1.4 2.14 1.4 3.5 l0 0 c0 1.4 -0.5 2.64 -1.4 3.52 c-0.82 0.94 -2.02 1.52 -3.34 1.52 l0 0 z M12.3 16.94 c-0.46 0.54 -0.72 1.26 -0.72 2.08 c0 0.86 0.26 1.56 0.72 2.12 c0.5 0.48 1.16 0.74 1.92 0.74 c0.7 0 1.34 -0.26 1.84 -0.74 c0.5 -0.56 0.78 -1.26 0.78 -2.12 l0 0 c0 -0.82 -0.28 -1.54 -0.78 -2.08 c-0.5 -0.44 -1.14 -0.76 -1.84 -0.76 c-0.76 0 -1.42 0.32 -1.92 0.76 z  M37.42 19.02 l0 3.9 c0 0.58 -0.48 1.08 -1.08 1.08 c-0.54 0 -0.96 -0.38 -1.06 -0.86 c-0.76 0.52 -1.72 0.86 -2.72 0.86 c-2.7 0 -4.86 -2.28 -4.86 -4.98 c0 -2.74 2.16 -5.02 4.86 -5.02 c0.98 0 1.94 0.32 2.68 0.84 l0 -3.76 c0 -0.58 0.48 -1.08 1.1 -1.08 c0.6 0 1.08 0.5 1.08 1.08 l0 7.92 l0 0.02 l0 0 z M34.44 17 c-0.5 -0.52 -1.14 -0.82 -1.88 -0.82 c-0.72 0 -1.38 0.3 -1.88 0.82 c-0.5 0.5 -0.8 1.22 -0.8 2.02 c0 0.76 0.3 1.48 0.8 1.98 c0.5 0.52 1.16 0.82 1.88 0.82 c0.74 0 1.38 -0.3 1.88 -0.82 c0.5 -0.5 0.8 -1.22 0.8 -1.98 c0 -0.8 -0.3 -1.52 -0.8 -2.02 z M45.92 24.06 c-1.38 0 -2.54 -0.58 -3.44 -1.52 c-0.86 -0.88 -1.38 -2.12 -1.38 -3.52 c0 -1.36 0.52 -2.54 1.38 -3.5 c0.9 -0.94 2.06 -1.52 3.44 -1.52 c1.32 0 2.52 0.58 3.34 1.52 c0.9 0.96 1.4 2.14 1.4 3.5 l0 0 c0 1.4 -0.5 2.64 -1.4 3.52 c-0.82 0.94 -2.02 1.52 -3.34 1.52 l0 0 z M44 16.94 c-0.46 0.54 -0.72 1.26 -0.72 2.08 c0 0.86 0.26 1.56 0.72 2.12 c0.5 0.48 1.16 0.74 1.92 0.74 c0.7 0 1.34 -0.26 1.84 -0.74 c0.5 -0.56 0.78 -1.26 0.78 -2.12 l0 0 c0 -0.82 -0.28 -1.54 -0.78 -2.08 c-0.5 -0.44 -1.14 -0.76 -1.84 -0.76 c-0.76 0 -1.42 0.32 -1.92 0.76 z"></path></g></svg>
     </a>
-    <form action="/new" method="GET"><button class="btn btn-dark">Create</button></form>
   </nav>
-
-  <div class="container">
-    <div class="row mt-3">
-      <% for (let todo of toDos) { %>
-        <div class="card col-sm-6 col-md-4">
-          <div class="card-body shadow bg-white rounded my-3">
-            <h5 class="card-title"><%= todo.title %></h5>
-            <ul class="list-group list-group-flush">
-              <% for (let i = 0; i < todo.content.length; i++) { %>
-                <% if (i < 3) { %>
-                  <li class="list-group-item"><%= todo.content[i] %></li>
-                <% } else { %>
-                  <li class="list-group-item">....</li>
-                  <% break %>
-                <% } %>
-              <% } %>
-            </ul>
-            <div class="card-body pb-0">
-              <a href="/<%= todo.id %>" class="btn btn-outline-success">View</a>
-            </div>
+  <div class="container my-5">
+    <div class="card border-info">
+      <div class="card-header">
+        <h3 class="m-0">New To Do</h3>
+      </div>
+      <div class="card-body">
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
           </div>
+          <input id="newToDoTitle" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         </div>
-      <% } %>
+      </div>
+      <div class="card-body">
+        <ul id="newToDoList" class="list-group list-group-flush"></ul>
+      </div>
+      <div class="card-body">
+        <div class="row mb-2">
+            <div class="col-lg-12">
+              <div class="input-group input-group-lg">
+                <input id="newToDoItem" type="text" class="form-control input-lg">
+                <span class="input-group-btn ml-2">
+                  <button class="btn btn-default btn-lg px-5" type="submit">Add</button>
+                </span>
+              </div>
+            </div>
+        </div>
+        <a id="submitToDo" href="#" class="btn btn-outline-info px-5">Submit</a>
+        <a href="#" class="btn btn-outline-danger px-5">Delete</a>
+      </div>
+
     </div>
   </div>
 
-  <script type="text/javascript" src='/script.js'></script>
+  <script src="./script.js"></script>
 </body>
 </html>
