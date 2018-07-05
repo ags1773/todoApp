@@ -1,3 +1,16 @@
-body{
+body {
   min-height: 100vh;   
+}
+#home .card {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#viewToDo .done {
+  text-decoration: line-through wavy red;
+  cursor: pointer;
+}
+#viewToDo #newToDoList li:hover {
+  cursor: pointer;
+}
+#home .done {
+  text-decoration: line-through wavy red;
 }

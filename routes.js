@@ -25,10 +25,16 @@ router.get('/:id', function (req, res) {
   }
 })
 
-// router.put('/:id', function (req, res) {
-//   console.log(`PUT on /${req.params.id}`)
-//   res.send(`Hit PUT`)
-// })
+router.put('/:id', function (req, res) { // Update existing todo
+  for (let todo of storageArr) {
+    if (todo.id.toString() === req.params.id) {
+      todo.content = req.body.content
+      break
+    }
+  }
+  res.sendStatus(200)
+  // res.redirect('/')
+})
 
 router.post('/', function (req, res) {
   storageArr.push(req.body)
