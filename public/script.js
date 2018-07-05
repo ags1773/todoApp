@@ -37,7 +37,13 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
   let locals = localsObj // contains data with which todo.ejs page is rendered
 
   let toggleStatus = function () {
-    this.classList.toggle('done')
+    this.classList.toggle('done') // toggle CSS class
+    for (let content of locals.content) { // find the task and toggle it's object boolean
+      if (content.data === this.textContent) {
+        content.done = !content.done
+        break
+      }
+    }
   }
 
   document.querySelector('#viewToDo button[type="submit"]').addEventListener('click', function () {
@@ -59,16 +65,6 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
   })
 
   document.querySelector('a[data-link-type="update"]').addEventListener('click', function () {
-    document.querySelectorAll('#newToDoList li').forEach(e => { // change 'done' to true of those list items which have a CSS class 'done'
-      if (e.classList.contains('done')) {
-        for (let todoObj of locals.content) {
-          if (todoObj.data === e.textContent) {
-            todoObj.done = true
-            break
-          }
-        }
-      }
-    })
     sendData(locals, '/' + locals.id, 'PUT', function (err, statusCode) {
       if (err) console.log(err)
       else {
@@ -76,6 +72,10 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
         else console.warn(`Server responded with status code => ${statusCode}`)
       }
     })
+  })
+
+  document.querySelector('a[data-link-type="delete"]').addEventListener('click', function () {
+    // delete
   })
 }
 

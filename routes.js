@@ -33,7 +33,6 @@ router.put('/:id', function (req, res) { // Update existing todo
     }
   }
   res.sendStatus(200)
-  // res.redirect('/')
 })
 
 router.post('/', function (req, res) {
