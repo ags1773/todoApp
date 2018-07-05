@@ -35,6 +35,16 @@ router.put('/:id', function (req, res) { // Update existing todo
   res.sendStatus(200)
 })
 
+router.delete('/:id', function (req, res) {
+  for (let i = 0; i < storageArr.length; i++) {
+    if (storageArr[i].id.toString() === req.params.id) {
+      storageArr.splice(i, 1)
+      break
+    }
+  }
+  res.sendStatus(200)
+})
+
 router.post('/', function (req, res) {
   storageArr.push(req.body)
   res.sendStatus(200)

@@ -75,7 +75,13 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
   })
 
   document.querySelector('a[data-link-type="delete"]').addEventListener('click', function () {
-    // delete
+    sendData(locals, '/' + locals.id, 'DELETE', function (err, statusCode) {
+      if (err) console.log(err)
+      else {
+        if (statusCode === 200) window.location.href = '/'
+        else console.warn(`Server responded with status code => ${statusCode}`) 
+      }
+    })
   })
 }
 
