@@ -1,9 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const storageArr = require('./storageArr')
+const Todo = require('./model')
 
 router.get('/', function (req, res) {
-  res.render('home', {toDos: storageArr})
+  Todo.find({}, function (err, foundLists) {
+    if (err) console.error(err)
+    else {
+      res.render('home', {toDos: foundLists})
+    }
+  })
 })
 
 router.get('/new', function (req, res) {
@@ -11,43 +16,33 @@ router.get('/new', function (req, res) {
 })
 
 router.get('/:id', function (req, res) {
-  let temp = null
-  for (let todo of storageArr) {
-    if (todo.id.toString() === req.params.id) {
-      temp = todo
-      break
+  Todo.findById(req.params.id, function (err, foundList) {
+    if (err) console.error(err)
+    else {
+      res.render('todo', {todo: foundList})
     }
-  }
-  if (temp) {
-    res.render('todo', {todo: temp})
-  } else {
-    res.send('To Do not found')
-  }
+  })
 })
 
 router.put('/:id', function (req, res) { // Update existing todo
-  for (let todo of storageArr) {
-    if (todo.id.toString() === req.params.id) {
-      todo.content = req.body.content
-      break
-    }
-  }
-  res.sendStatus(200)
+  Todo.findByIdAndUpdate(req.params.id, req.body, function (err, list) {
+    if (err) console.error(err)
+    else res.sendStatus(200)
+  })
 })
 
 router.delete('/:id', function (req, res) {
-  for (let i = 0; i < storageArr.length; i++) {
-    if (storageArr[i].id.toString() === req.params.id) {
-      storageArr.splice(i, 1)
-      break
-    }
-  }
-  res.sendStatus(200)
+  Todo.findByIdAndRemove(req.params.id, function (err) {
+    if (err) console.error(err)
+    else res.sendStatus(200)
+  })
 })
 
 router.post('/', function (req, res) {
-  storageArr.push(req.body)
-  res.sendStatus(200)
+  Todo.create(req.body, function (err) {
+    if (err) console.error(err)
+    else res.sendStatus(200)
+  })
 })
 
 module.exports = router

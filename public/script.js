@@ -18,9 +18,9 @@ if (document.querySelector('#newToDo')) { // newToDo.ejs page
     if (/^\S+/.test(title) && todos.length > 0) {
       let payload = {
         title: title,
-        content: todos,
-        // Remove ID when you add DB
-        id: Math.floor(Math.random() * 10000)
+        content: todos
+        // // Remove ID when you add DB
+        // id: Math.floor(Math.random() * 10000)
       }
       sendData(payload, '/', 'POST', function (err, statusCode) {
         if (err) console.error(err)
@@ -65,7 +65,7 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
   })
 
   document.querySelector('a[data-link-type="update"]').addEventListener('click', function () {
-    sendData(locals, '/' + locals.id, 'PUT', function (err, statusCode) {
+    sendData(locals, '/' + locals._id, 'PUT', function (err, statusCode) {
       if (err) console.log(err)
       else {
         if (statusCode === 200) window.location.href = '/'
@@ -75,11 +75,11 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
   })
 
   document.querySelector('a[data-link-type="delete"]').addEventListener('click', function () {
-    sendData(locals, '/' + locals.id, 'DELETE', function (err, statusCode) {
+    sendData(locals, '/' + locals._id, 'DELETE', function (err, statusCode) {
       if (err) console.log(err)
       else {
         if (statusCode === 200) window.location.href = '/'
-        else console.warn(`Server responded with status code => ${statusCode}`) 
+        else console.warn(`Server responded with status code => ${statusCode}`)
       }
     })
   })
