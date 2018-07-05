@@ -31,12 +31,7 @@ router.get('/:id', function (req, res) {
 // })
 
 router.post('/', function (req, res) {
-  let tempObj = {}
-  tempObj.title = req.body.title
-  tempObj.content = req.body.content.split(',')
-  // Remove ID when you add DB
-  tempObj.id = req.body.id
-  storageArr.push(tempObj)
+  storageArr.push(req.body)
   res.sendStatus(200)
 })
 
