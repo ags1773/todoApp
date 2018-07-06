@@ -46,7 +46,7 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
     }
   }
 
-  document.querySelector('#viewToDo button[type="submit"]').addEventListener('click', function () {
+  document.querySelector('a[data-link-type="add"]').addEventListener('click', function () {
     let input = document.querySelector('#newToDoItem').value
     if (/^\S+/.test(input)) {
       document.querySelector('#newToDoItem').value = ''
@@ -75,7 +75,7 @@ if (document.querySelector('#viewToDo')) { // todo.ejs page
   })
 
   document.querySelector('a[data-link-type="delete"]').addEventListener('click', function () {
-    sendData(locals, '/' + locals._id, 'DELETE', function (err, statusCode) {
+    sendData({}, '/' + locals._id, 'DELETE', function (err, statusCode) {
       if (err) console.log(err)
       else {
         if (statusCode === 200) window.location.href = '/'
