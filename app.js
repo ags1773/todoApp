@@ -9,8 +9,7 @@ const port = 3000
 mongoose.connect(process.env.DBURL2)
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public'))) // express.static is a middleware to serve static files in /public directory in the project root
-app.use(bodyParser.urlencoded({extended: true})) // for forms
-app.use(bodyParser.json()) // for XMLHTTP requests using JSON
+app.use(bodyParser.json())
 app.use(navRoutes)
 
 app.listen(port, function () {

@@ -49,7 +49,8 @@
       </div>
     </div>
   </div>
-  <script>let localsObj = <%- JSON.stringify(todo) %></script>
+  <div id="localsObj" data-localsObj="<%= JSON.stringify(todo) %>" style="display: none;"></div>
+  <!-- <script>let localsObj = <%- JSON.stringify(todo) %></script> -->
   <script type="text/javascript" src='/script.js'></script>
 </body>
 </html>

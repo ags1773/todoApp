@@ -19,8 +19,6 @@ if (document.querySelector('#newToDo')) { // newToDo.ejs page
       let payload = {
         title: title,
         content: todos
-        // // Remove ID when you add DB
-        // id: Math.floor(Math.random() * 10000)
       }
       sendData(payload, '/', 'POST', function (err, statusCode) {
         if (err) console.error(err)
@@ -34,7 +32,9 @@ if (document.querySelector('#newToDo')) { // newToDo.ejs page
 }
 
 if (document.querySelector('#viewToDo')) { // todo.ejs page
-  let locals = localsObj // contains data with which todo.ejs page is rendered
+  // let locals = localsObj // contains data with which todo.ejs page is rendered
+  let temp = document.querySelector('#localsObj').getAttribute('data-localsObj')
+  let locals = JSON.parse(temp)
 
   let toggleStatus = function () {
     this.classList.toggle('done') // toggle CSS class
