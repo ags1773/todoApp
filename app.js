@@ -4,7 +4,7 @@ const bodyParser = require('body-parser') // needed to read POST request data. T
 const app = express()
 const mongoose = require('mongoose')
 
-const navRoutes = require('./todo/routes/todo')
+const navRoutes = require('./todo/routes/todo_routes')
 
 mongoose.connect(process.env.DBURL2)
 app.set('view engine', 'ejs')

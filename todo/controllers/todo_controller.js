@@ -1,4 +1,4 @@
-const Todo = require('../models/todo')
+const Todo = require('../models/todo_model')
 
 exports.todo_get_all = function (req, res) {
   Todo.find({}, function (err, foundLists) {
